@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
+                      <Component id="movieSelect" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="maTitle" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="maSeat" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="maGrade" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Component id="maGenre" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="beomTitle" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="gongTitle" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="gongGrade" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="gongSeat" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="gongGenre" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="beomSeat" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="beomGenre" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="beomGrade" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="183" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="chooseSeatNum" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="movieSelect" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="gongGenre" min="-2" max="-2" attributes="0"/>
+                  <Component id="gongTitle" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="gongSeat" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="gongGrade" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="beomGenre" min="-2" max="-2" attributes="0"/>
+                  <Component id="beomTitle" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="beomSeat" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="beomGrade" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="maTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="maGenre" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="maSeat" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="maGrade" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="chooseSeatNum" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JCheckBox" name="gongTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xacf5;&#xc870;2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="beomTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xbc94;&#xc8c4;&#xb3c4;&#xc2dc;2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="maTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xb9c8;&#xb140;2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="gongGenre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc7a5;&#xb974;: &#xc561;&#xc158;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="gongSeat">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc88c;&#xc11d;&#xc218;: 32&#xc11d;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="gongGrade">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xd3c9;&#xc810;: 8.01"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="beomSeat">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc88c;&#xc11d;&#xc218;: 32&#xc11d;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="beomGrade">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xd3c9;&#xc810;: 9.01"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="beomGenre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc7a5;&#xb974;: &#xbc94;&#xc8c4;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="maSeat">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc88c;&#xc11d;&#xc218;: 32&#xc11d;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="maGrade">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xd3c9;&#xc810;: 6.99"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="maGenre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc7a5;&#xb974;: &#xc561;&#xc158;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="chooseSeatNum">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc88c;&#xc11d;&#xc120;&#xd0dd;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="movieSelect">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc601;&#xd654;&#xc120;&#xd0dd;"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
