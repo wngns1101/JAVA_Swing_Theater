@@ -1,6 +1,7 @@
 
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,6 +11,8 @@ public class storeFrame extends javax.swing.JFrame {
     int total = 0;  // 제품 총 합계 표시할 변수
     public storeFrame() {
         initComponents();
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.getTableHeader().setResizingAllowed(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -256,13 +259,18 @@ public class storeFrame extends javax.swing.JFrame {
 
         btnPay.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnPay.setText("결제하기");
+        btnPay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPayActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("구매 리스트");
 
         lblTotal.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTotal.setText("0 원");
+        lblTotal.setText("0");
 
         jTable1.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -470,6 +478,48 @@ public class storeFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnSelectedCancleActionPerformed
 
+    private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
+        // 결제하기 버튼 클릭 시 이벤트
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        
+        boolean check = true;
+        
+        // if 문 이용하여 총합 금액의 텍스트의 문자열이 0이라면 결제 실패 메시지(선택된 제품이 없음) 창 생성
+        if ((lblTotal.getText()).equals("0")) {
+            JOptionPane.showMessageDialog(null, "선택된 제품이 없습니다. 제품을  선택해 주십시오.",
+                                        "결제 실패", JOptionPane.ERROR_MESSAGE);
+            check = false;
+        }
+        
+        // DB 연결하고 저장하기 (나중에 해야지.. 작성일 : 11/25)
+        
+        // 값 전달 테스트
+        String storeTotal = "";
+        String product = "";
+        String price = "";
+        String count = "";
+        String lbl = "<html>";
+        
+        int iCntRow = 0;
+        iCntRow = jTable1.getRowCount();
+        
+        for (int i = 0; i < iCntRow; i++) {
+            product = String.valueOf(model.getValueAt(i, 0));
+            count = String.valueOf(model.getValueAt(i, 1));
+            price = String.valueOf(model.getValueAt(i, 2));
+            lbl += product + " " + price + " " + count + "<br>";
+            System.out.println(lbl);
+        }
+        lbl += "</html>";
+        storeTotal = lblTotal.getText();
+        
+        if (check) {  // 선택된 제품이 있을 경우
+            dispose();  // 현재 윈도우만 닫기
+            new storeReceipt(storeTotal, lbl);  // 매점 영수증 frame으로 이동 + 구매하는 제품들과 총합 금액도 같이..
+        }
+        // 값 전달 테스트 끝
+    }//GEN-LAST:event_btnPayActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -536,6 +586,7 @@ public class storeFrame extends javax.swing.JFrame {
         public String strProduct;
         public int iPrice;
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAllCancle;
