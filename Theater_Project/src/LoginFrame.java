@@ -18,6 +18,7 @@ public class LoginFrame extends javax.swing.JFrame {
      */
     public LoginFrame() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -98,10 +99,8 @@ public class LoginFrame extends javax.swing.JFrame {
             int result = user.login(id, pw);
             if(result == 1){
 		JOptionPane.showMessageDialog(null, "로그인 성공");
-                MainFrame2 main = new MainFrame2();
-                main.setLocationRelativeTo(null);
-                main.setVisible(true);
                 dispose();
+                new MainFrame2();
             }else if(result == 0){
 		JOptionPane.showMessageDialog(null, "비밀번호가 틀립니다");
             }else if(result == -1){

@@ -14,6 +14,8 @@ public class MainFrame2 extends javax.swing.JFrame {
      */
     public MainFrame2() {
         initComponents();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**
@@ -79,17 +81,13 @@ public class MainFrame2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void reserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveActionPerformed
-        MovieFrame movie = new MovieFrame();
-        movie.setLocationRelativeTo(null);
-        movie.setVisible(true);
         dispose();
+        new MovieFrame();
     }//GEN-LAST:event_reserveActionPerformed
 
     private void storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeActionPerformed
-        StoreFrame store = new StoreFrame();
-        store.setLocationRelativeTo(null);
-        store.setVisible(true);
         dispose();
+        new StoreFrame();
     }//GEN-LAST:event_storeActionPerformed
 
     /**

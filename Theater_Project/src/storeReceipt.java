@@ -12,14 +12,15 @@ public class StoreReceipt extends javax.swing.JFrame {
     /**
      * Creates new form storeReceipt
      */
-    public storeReceipt( String total, String product) {
-        setVisible(true);
+    public StoreReceipt(String total, String product) {
         initComponents();
+        setLocationRelativeTo(null);
+        setVisible(true);
         lblTotal.setText(total);
         lblProduct.setText(product);
     }
 
-    private storeReceipt() {
+    private StoreReceipt() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

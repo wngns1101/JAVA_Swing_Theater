@@ -19,6 +19,7 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
     
     public ChooseSeatFrame(movieDTO dto) {
         initComponents();
+        setLocationRelativeTo(null);
         movieDAO dao = new movieDAO();
         int available[] = dao.seat(dto.Getmovie());
         if(available[0] == 1){
@@ -624,10 +625,8 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void seatPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatPayActionPerformed
-        StoreReceipt store = new StoreReceipt();
-        store.setLocationRelativeTo(null);
-        store.setVisible(true);
         dispose();
+        new MovieReceiptFrame();
     }//GEN-LAST:event_seatPayActionPerformed
 
     private void seatA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA1ActionPerformed
