@@ -13,6 +13,7 @@ public class JoinFrame extends javax.swing.JFrame {
      * Creates new form JoinFrame
      */
     public JoinFrame() {
+        setLocationRelativeTo(null);
         initComponents();
     }
 

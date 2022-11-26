@@ -14,6 +14,8 @@ public class MovieReceiptFrame extends javax.swing.JFrame {
      */
     public MovieReceiptFrame() {
         initComponents();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**

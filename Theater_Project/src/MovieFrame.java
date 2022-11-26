@@ -19,6 +19,8 @@ public class MovieFrame extends javax.swing.JFrame {
      */
     public MovieFrame() {
         initComponents();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**

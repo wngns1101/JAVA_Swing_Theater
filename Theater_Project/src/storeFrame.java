@@ -11,6 +11,8 @@ public class StoreFrame extends javax.swing.JFrame {
     int total = 0;  // 제품 총 합계 표시할 변수
     public StoreFrame() {
         initComponents();
+        setLocationRelativeTo(null);
+        setVisible(true);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jTable1.getTableHeader().setResizingAllowed(false);
     }
@@ -515,7 +517,7 @@ public class StoreFrame extends javax.swing.JFrame {
         
         if (check) {  // 선택된 제품이 있을 경우
             dispose();  // 현재 윈도우만 닫기
-            new storeReceipt(storeTotal, lbl);  // 매점 영수증 frame으로 이동 + 구매하는 제품들과 총합 금액도 같이..
+            new StoreReceipt(storeTotal, lbl);  // 매점 영수증 frame으로 이동 + 구매하는 제품들과 총합 금액도 같이..
         }
         // 값 전달 테스트 끝
     }//GEN-LAST:event_btnPayActionPerformed
