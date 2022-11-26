@@ -1,19 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 /**
  *
  * @author 표유림
  */
 public class MainFrame2 extends javax.swing.JFrame {
+    static String id; // 소희 
 
-    /**
-     * Creates new form MainFrame2
-     */
-    public MainFrame2() {
+    public MainFrame2(String userID) {
         initComponents();
+        id = userID;  // 소희 
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -87,7 +81,7 @@ public class MainFrame2 extends javax.swing.JFrame {
 
     private void storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeActionPerformed
         dispose();
-        new StoreFrame();
+        new StoreFrame(id);  // 소희
     }//GEN-LAST:event_storeActionPerformed
 
     /**
@@ -120,7 +114,7 @@ public class MainFrame2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame2().setVisible(true);
+//                new MainFrame2().setVisible(true);
             }
         });
     }

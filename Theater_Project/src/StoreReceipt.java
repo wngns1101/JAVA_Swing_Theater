@@ -1,3 +1,12 @@
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -12,17 +21,18 @@ public class StoreReceipt extends javax.swing.JFrame {
     /**
      * Creates new form storeReceipt
      */
-    public StoreReceipt(String total, String product) {
+    public StoreReceipt(String total, String product, String name) {
         initComponents();
         setLocationRelativeTo(null);
         setVisible(true);
         lblTotal.setText(total);
         lblProduct.setText(product);
+        lblUser.setText(name);
     }
 
-    private StoreReceipt() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+//    private StoreReceipt() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,7 +48,7 @@ public class StoreReceipt extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         lblProduct = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
         lblUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,11 +67,11 @@ public class StoreReceipt extends javax.swing.JFrame {
         lblTotal.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblTotal.setText("123,123원");
 
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton1.setText("출력하기");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnPrint.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnPrint.setText("출력하기");
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnPrintActionPerformed(evt);
             }
         });
 
@@ -81,7 +91,7 @@ public class StoreReceipt extends javax.swing.JFrame {
                         .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addComponent(btnPrint)
                             .addComponent(lblTotal))
                         .addGap(43, 43, 43))))
             .addGroup(layout.createSequentialGroup()
@@ -112,16 +122,16 @@ public class StoreReceipt extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addComponent(lblTotal)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnPrint)
                 .addGap(63, 63, 63))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
+        print();
+    }//GEN-LAST:event_btnPrintActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,15 +162,50 @@ public class StoreReceipt extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run(){
-                new StoreReceipt().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run(){
+//                new StoreReceipt().setVisible(true);
+//            }
+//        });
     }
 
+    public void print() {
+        PrinterJob job = PrinterJob.getPrinterJob();
+        if (job.printDialog()) {
+            try {
+                job.setPrintable(new Printable() {
+                   public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+                       if (pageIndex == 0) {
+                           Graphics2D g2d = (Graphics2D)graphics;
+                           g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+                           
+                           Dimension dim = getSize();
+                           
+                           double cHeight = dim.getHeight();
+                           double cWidth = dim.getWidth();
+                           
+                           double pHeight = pageFormat.getImageableHeight();
+                           double pWidth = pageFormat.getImageableWidth();
+                           
+                           double xRatio = pWidth / cWidth;
+                           double yRatio = pHeight / cHeight;
+                           
+                           g2d.scale(xRatio, yRatio);
+                           
+                           printAll(g2d);
+                           return PAGE_EXISTS;
+                       }
+                       return NO_SUCH_PAGE;
+                   } 
+                });
+                job.print();
+            } catch (PrinterException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnPrint;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

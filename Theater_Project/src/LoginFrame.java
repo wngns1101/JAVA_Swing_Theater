@@ -1,4 +1,3 @@
-
 import javax.swing.JOptionPane;
 import user.userDAO;
 
@@ -100,7 +99,7 @@ public class LoginFrame extends javax.swing.JFrame {
             if(result == 1){
 		JOptionPane.showMessageDialog(null, "로그인 성공");
                 dispose();
-                new MainFrame2();
+                new MainFrame2(id);  // 소희
             }else if(result == 0){
 		JOptionPane.showMessageDialog(null, "비밀번호가 틀립니다");
             }else if(result == -1){
