@@ -54,6 +54,7 @@ public class StoreFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnAllCancle = new javax.swing.JButton();
         btnSelectedCancle = new javax.swing.JButton();
+        backFrame = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -317,6 +318,14 @@ public class StoreFrame extends javax.swing.JFrame {
             }
         });
 
+        backFrame.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        backFrame.setText("뒤로가기");
+        backFrame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backFrameActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -335,7 +344,8 @@ public class StoreFrame extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(backFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -353,7 +363,7 @@ public class StoreFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -370,7 +380,9 @@ public class StoreFrame extends javax.swing.JFrame {
                         .addComponent(lblTotal)
                         .addGap(18, 18, 18)
                         .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
+                        .addGap(18, 18, 18)
+                        .addComponent(backFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAllCancle)
                         .addGap(18, 18, 18)
                         .addComponent(btnSelectedCancle)))
@@ -535,6 +547,11 @@ public class StoreFrame extends javax.swing.JFrame {
         // 값 전달 테스트 끝
     }//GEN-LAST:event_btnPayActionPerformed
 
+    private void backFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backFrameActionPerformed
+        dispose();
+        new MainFrame2(id);
+    }//GEN-LAST:event_backFrameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -621,6 +638,7 @@ public class StoreFrame extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backFrame;
     private javax.swing.JButton btnAllCancle;
     private javax.swing.JButton btnDrinkCoke;
     private javax.swing.JButton btnDrinkFanta;

@@ -76,7 +76,7 @@ public class MainFrame2 extends javax.swing.JFrame {
 
     private void reserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveActionPerformed
         dispose();
-        new MovieFrame();
+        new MovieFrame(id);
     }//GEN-LAST:event_reserveActionPerformed
 
     private void storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeActionPerformed

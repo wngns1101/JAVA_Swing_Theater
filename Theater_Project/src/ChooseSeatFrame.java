@@ -1,4 +1,6 @@
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import movie.movieDAO;
 import movie.movieDTO;
 
@@ -16,10 +18,13 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
     /**
      * Creates new form chooseSeat
      */
-    
-    public ChooseSeatFrame(movieDTO dto) {
+    String id;
+    String movie;
+    public ChooseSeatFrame(movieDTO dto, String id) {
         initComponents();
         setLocationRelativeTo(null);
+        this.id = id;
+        movie = dto.Getmovie();
         movieDAO dao = new movieDAO();
         int available[] = dao.seat(dto.Getmovie());
         if(available[0] == 1){
@@ -120,7 +125,16 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
         }
         
     }
-
+    
+    ArrayList<String> list = new ArrayList<>();
+    
+    public void reservationResult(){
+        int price = Integer.parseInt(resultPrice.getText()) + 15000;
+        int count = Integer.parseInt(resultCount.getText()) + 1;
+        resultPrice.setText(Integer.toString(price));
+        resultCount.setText(Integer.toString(count));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -166,6 +180,9 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
         seatPrice = new javax.swing.JLabel();
         seatCount = new javax.swing.JLabel();
         seatPay = new javax.swing.JButton();
+        resultPrice = new javax.swing.JLabel();
+        resultCount = new javax.swing.JLabel();
+        backFrame = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -429,14 +446,25 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
             }
         });
 
-        seatPrice.setText("금액: 0");
+        seatPrice.setText("금액:");
 
-        seatCount.setText("인원수: 0");
+        seatCount.setText("인원수:");
 
         seatPay.setText("결제하기");
         seatPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seatPayActionPerformed(evt);
+            }
+        });
+
+        resultPrice.setText("0");
+
+        resultCount.setText("0");
+
+        backFrame.setText("뒤로가기");
+        backFrame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backFrameActionPerformed(evt);
             }
         });
 
@@ -467,7 +495,8 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(seatD1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(seatD2)))))
+                                        .addComponent(seatD2))
+                                    .addComponent(backFrame))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -498,7 +527,6 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(seatCount)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(seatB5)
@@ -512,7 +540,14 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
                                             .addComponent(seatD5)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(seatD6)))
-                                    .addComponent(seatPrice)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(seatCount)
+                                            .addComponent(seatPrice))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(resultPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                                            .addComponent(resultCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(seatScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)))
@@ -613,11 +648,15 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
                             .addComponent(seatD7)
                             .addComponent(seatD8))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(seatPrice)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(seatPrice)
+                    .addComponent(resultPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(seatPay, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(seatCount, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(seatPay)
+                    .addComponent(seatCount)
+                    .addComponent(resultCount, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backFrame))
                 .addGap(19, 19, 19))
         );
 
@@ -625,137 +664,186 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void seatPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatPayActionPerformed
-        dispose();
-        new MovieReceiptFrame();
+        int result = 0;
+        String str = "";
+        movieDAO dao = new movieDAO();
+        for(int i=0; i<list.size(); i++){
+            result = dao.reservation(list.get(i), movie);
+            str += list.get(i) + ", ";
+        }
+        if(result > 0){
+            JOptionPane.showMessageDialog(null, "예약 성공");
+            dispose();
+            new MovieReceiptFrame(id, resultPrice.getText(), str, movie);
+        }else{
+            JOptionPane.showMessageDialog(null, "예약 실패");
+        }
     }//GEN-LAST:event_seatPayActionPerformed
 
     private void seatA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA1ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatA1.getText());
+        reservationResult();
     }//GEN-LAST:event_seatA1ActionPerformed
 
     private void seatA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA2ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatA2.getText());
+        reservationResult();
     }//GEN-LAST:event_seatA2ActionPerformed
 
     private void seatA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA3ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatA3.getText());
+        reservationResult();
     }//GEN-LAST:event_seatA3ActionPerformed
 
     private void seatA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA4ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatA4.getText());
+        reservationResult();
     }//GEN-LAST:event_seatA4ActionPerformed
 
     private void seatA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA5ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatA5.getText());
+        reservationResult();
     }//GEN-LAST:event_seatA5ActionPerformed
 
     private void seatA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA6ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatA6.getText());
+        reservationResult();
     }//GEN-LAST:event_seatA6ActionPerformed
 
     private void seatA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA7ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatA7.getText());
+        reservationResult();
     }//GEN-LAST:event_seatA7ActionPerformed
 
     private void seatA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA8ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatA8.getText());
+        reservationResult();
     }//GEN-LAST:event_seatA8ActionPerformed
 
     private void seatB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB1ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatB1.getText());
+        reservationResult();
     }//GEN-LAST:event_seatB1ActionPerformed
 
     private void seatB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB2ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatB2.getText());
+        reservationResult();
     }//GEN-LAST:event_seatB2ActionPerformed
 
     private void seatB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB3ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatB3.getText());
+        reservationResult();
     }//GEN-LAST:event_seatB3ActionPerformed
 
     private void seatB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB4ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatB4.getText());
+        reservationResult();
     }//GEN-LAST:event_seatB4ActionPerformed
 
     private void seatB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB5ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatB5.getText());
+        reservationResult();
     }//GEN-LAST:event_seatB5ActionPerformed
 
     private void seatB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB6ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatB6.getText());
+        reservationResult();
     }//GEN-LAST:event_seatB6ActionPerformed
 
     private void seatB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB7ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatB7.getText());
+        reservationResult();
     }//GEN-LAST:event_seatB7ActionPerformed
 
     private void seatB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB8ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatB8.getText());
+        reservationResult();
     }//GEN-LAST:event_seatB8ActionPerformed
 
     private void seatC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC1ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatC1.getText());
+        reservationResult();
     }//GEN-LAST:event_seatC1ActionPerformed
 
     private void seatC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC2ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatC2.getText());
+        reservationResult();
     }//GEN-LAST:event_seatC2ActionPerformed
 
     private void seatC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC3ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatC3.getText());
+        reservationResult();
     }//GEN-LAST:event_seatC3ActionPerformed
 
     private void seatC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC4ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatC4.getText());
+        reservationResult();
     }//GEN-LAST:event_seatC4ActionPerformed
 
     private void seatC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC5ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatC5.getText());
+        reservationResult();
     }//GEN-LAST:event_seatC5ActionPerformed
 
     private void seatC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC6ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatC6.getText());
+        reservationResult();
     }//GEN-LAST:event_seatC6ActionPerformed
 
     private void seatC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC7ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatC7.getText());
+        reservationResult();
     }//GEN-LAST:event_seatC7ActionPerformed
 
     private void seatC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC8ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatC8.getText());
+        reservationResult();
     }//GEN-LAST:event_seatC8ActionPerformed
 
     private void seatD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD1ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatD1.getText());
+        reservationResult();
     }//GEN-LAST:event_seatD1ActionPerformed
 
     private void seatD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD2ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatD2.getText());
+        reservationResult();
     }//GEN-LAST:event_seatD2ActionPerformed
 
     private void seatD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD3ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatD3.getText());
+        reservationResult();
     }//GEN-LAST:event_seatD3ActionPerformed
 
     private void seatD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD4ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatD4.getText());
+        reservationResult();
     }//GEN-LAST:event_seatD4ActionPerformed
 
     private void seatD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD5ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatD5.getText());
+        reservationResult();
     }//GEN-LAST:event_seatD5ActionPerformed
 
     private void seatD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD6ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatD6.getText());
+        reservationResult();
     }//GEN-LAST:event_seatD6ActionPerformed
 
     private void seatD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD7ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatD7.getText());
+        reservationResult();
     }//GEN-LAST:event_seatD7ActionPerformed
 
     private void seatD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD8ActionPerformed
-        // TODO add your handling code here:
+        list.add(seatD8.getText());
+        reservationResult();
     }//GEN-LAST:event_seatD8ActionPerformed
+
+    private void backFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backFrameActionPerformed
+        dispose();
+        new MovieFrame(id);
+    }//GEN-LAST:event_backFrameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -802,6 +890,9 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backFrame;
+    private javax.swing.JLabel resultCount;
+    private javax.swing.JLabel resultPrice;
     private javax.swing.JCheckBox seatA1;
     private javax.swing.JCheckBox seatA2;
     private javax.swing.JCheckBox seatA3;
