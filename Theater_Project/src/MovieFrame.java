@@ -12,12 +12,12 @@ import movie.movieDTO;
  *
  * @author juhoonlee
  */
-public class movie extends javax.swing.JFrame {
+public class MovieFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form movie
      */
-    public movie() {
+    public MovieFrame() {
         initComponents();
     }
 
@@ -173,8 +173,10 @@ public class movie extends javax.swing.JFrame {
         if(maTitle.isSelected()){
             movie.Setmovie("movie3");
         }
-        chooseSeat seat = new chooseSeat(movie);
+        ChooseSeatFrame seat = new ChooseSeatFrame(movie);
+        seat.setLocationRelativeTo(null);
         seat.setVisible(true);
+        dispose();
     }//GEN-LAST:event_chooseSeatNumActionPerformed
 
     /**
@@ -194,20 +196,23 @@ public class movie extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(movie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MovieFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(movie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MovieFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(movie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MovieFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(movie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MovieFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new movie().setVisible(true);
+                new MovieFrame().setVisible(true);
             }
         });
     }

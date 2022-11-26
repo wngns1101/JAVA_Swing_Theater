@@ -1,47 +1,48 @@
+package user;
+import java.sql.*;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package movie;
-import java.sql.*;
+
 /**
  *
  * @author juhoonlee
  */
-public class movieDAO {
+public class userDAO {
     Connection conn;
     ResultSet rs;
     PreparedStatement pstmt;
-    public movieDAO(){
+    
+    public userDAO(){
         try {
             String dbURL = "jdbc:mysql://localhost:3306/javaProject?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
             String dbId = "root";
             String dbPassword = "Wkrwjs4602!";
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(dbURL, dbId, dbPassword);
-        } catch (Exception e) {
+	} catch (Exception e) {
             e.printStackTrace();
-        }
+	}
     }
-    
-//    public int seatReservation(movieDTO dto){
-//        
-//    }
-    
-    public int[] seat(String movie){
-        int available[] = new int[32];
-        try{
-            pstmt = conn.prepareStatement("select available from " + movie);
-            rs = pstmt.executeQuery();
-            int i=0;
-            while(rs.next()){
-                available[i] = Integer.parseInt(rs.getString("available"));
-                i++;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return available;
+    public int login(String id, String pw){
+        String sql = "select userPw from user where userId = ?";
+            try {
+                pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, id);
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+                    if(rs.getString(1).equals(pw)) {
+                    	return 1;
+                    }else {
+			return 0;
+                    }
+		}
+                    return -1;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	return -2;
     }
-    
 }

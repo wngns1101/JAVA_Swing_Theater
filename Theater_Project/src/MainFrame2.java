@@ -26,9 +26,7 @@ public class MainFrame2 extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        logout = new javax.swing.JButton();
         reserve = new javax.swing.JButton();
-        ticketPrint = new javax.swing.JButton();
         store = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -36,53 +34,63 @@ public class MainFrame2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("새굴림", 0, 28)); // NOI18N
         jLabel1.setText("주유소 영화관");
 
-        logout.setText("로그아웃");
-
         reserve.setText("예매하기");
-
-        ticketPrint.setText("예매 표 출력하기");
+        reserve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reserveActionPerformed(evt);
+            }
+        });
 
         store.setText("매점 이용하기");
+        store.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                storeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(reserve)
-                .addGap(26, 26, 26)
-                .addComponent(ticketPrint)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(store)
-                .addGap(28, 28, 28))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(logout)))
+                .addGap(126, 126, 126)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(reserve)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(store)
+                .addGap(71, 71, 71))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addComponent(logout)
-                .addGap(62, 62, 62)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reserve)
-                    .addComponent(ticketPrint)
                     .addComponent(store))
-                .addGap(35, 35, 35))
+                .addGap(79, 79, 79))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void reserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveActionPerformed
+        MovieFrame movie = new MovieFrame();
+        movie.setLocationRelativeTo(null);
+        movie.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_reserveActionPerformed
+
+    private void storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeActionPerformed
+        StoreFrame store = new StoreFrame();
+        store.setLocationRelativeTo(null);
+        store.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_storeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,9 +129,7 @@ public class MainFrame2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton logout;
     private javax.swing.JButton reserve;
     private javax.swing.JButton store;
-    private javax.swing.JButton ticketPrint;
     // End of variables declaration//GEN-END:variables
 }
