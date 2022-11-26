@@ -1,16 +1,24 @@
 
-import java.util.Vector;
+import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
+import user.userDAO;
 
 /**
  *
  * @author hansohee
  */
 public class StoreFrame extends javax.swing.JFrame {
+    static String id;
     int total = 0;  // 제품 총 합계 표시할 변수
-    public StoreFrame() {
+    
+    Connection conn;
+    PreparedStatement pstmt;
+    ResultSet rs;
+    
+    public StoreFrame(String userID) {
         initComponents();
+        id = userID;
         setLocationRelativeTo(null);
         setVisible(true);
         jTable1.getTableHeader().setReorderingAllowed(false);
@@ -493,7 +501,12 @@ public class StoreFrame extends javax.swing.JFrame {
             check = false;
         }
         
-        // DB 연결하고 저장하기 (나중에 해야지.. 작성일 : 11/25)
+        // 유저 이름 가져오기
+        String name = getName();
+        
+        if (name == null) {
+            System.out.println("이름 없음.");
+        }
         
         // 값 전달 테스트
         String storeTotal = "";
@@ -502,6 +515,7 @@ public class StoreFrame extends javax.swing.JFrame {
         String count = "";
         String lbl = "<html>";
         
+        storeTotal = lblTotal.getText();
         int iCntRow = 0;
         iCntRow = jTable1.getRowCount();
         
@@ -513,11 +527,10 @@ public class StoreFrame extends javax.swing.JFrame {
             System.out.println(lbl);
         }
         lbl += "</html>";
-        storeTotal = lblTotal.getText();
         
         if (check) {  // 선택된 제품이 있을 경우
             dispose();  // 현재 윈도우만 닫기
-            new StoreReceipt(storeTotal, lbl);  // 매점 영수증 frame으로 이동 + 구매하는 제품들과 총합 금액도 같이..
+            new StoreReceipt(storeTotal, lbl, name);  // 매점 영수증 frame으로 이동 + 구매하는 제품들과 총합 금액도 같이..
         }
         // 값 전달 테스트 끝
     }//GEN-LAST:event_btnPayActionPerformed
@@ -551,11 +564,11 @@ public class StoreFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run(){
-                new StoreFrame().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run(){
+//                new StoreFrame().setVisible(true);
+//            }
+//        });
     }
     
     public void inputMenuTable(String btnName, int price) {
@@ -588,6 +601,22 @@ public class StoreFrame extends javax.swing.JFrame {
     public class MakeRowData {
         public String strProduct;
         public int iPrice;
+    }
+    
+    public String getName(userDAO nUser) {
+        String sql = "select userName from user where userId = ?";
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getString("userName");
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
