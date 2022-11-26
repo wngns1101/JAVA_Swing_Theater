@@ -1,3 +1,7 @@
+
+import javax.swing.JOptionPane;
+import user.userDAO;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -38,6 +42,11 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel2.setText("비밀번호 :");
 
         loginAction.setText("로그인");
+        loginAction.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,6 +86,31 @@ public class LoginFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionActionPerformed
+        String id = loginId.getText();
+        String pw = loginPassword.getText();
+        
+        if(id == null || pw == null){
+            JOptionPane.showMessageDialog(null, "아이디 비밀번호를 입력해 주세요");
+        }else{
+            userDAO user = new userDAO();
+            int result = user.login(id, pw);
+            if(result == 1){
+		JOptionPane.showMessageDialog(null, "로그인 성공");
+                MainFrame2 main = new MainFrame2();
+                main.setLocationRelativeTo(null);
+                main.setVisible(true);
+                dispose();
+            }else if(result == 0){
+		JOptionPane.showMessageDialog(null, "비밀번호가 틀립니다");
+            }else if(result == -1){
+		JOptionPane.showMessageDialog(null, "아이디가 틀립니다");
+            }else{
+		JOptionPane.showMessageDialog(null, "데이터베이스 오류");
+            }
+        }
+    }//GEN-LAST:event_loginActionActionPerformed
 
     /**
      * @param args the command line arguments

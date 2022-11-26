@@ -6,9 +6,9 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author hansohee
  */
-public class storeFrame extends javax.swing.JFrame {
+public class StoreFrame extends javax.swing.JFrame {
     int total = 0;  // 제품 총 합계 표시할 변수
-    public storeFrame() {
+    public StoreFrame() {
         initComponents();
     }
     @SuppressWarnings("unchecked")
@@ -256,6 +256,11 @@ public class storeFrame extends javax.swing.JFrame {
 
         btnPay.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnPay.setText("결제하기");
+        btnPay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPayActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("구매 리스트");
@@ -470,6 +475,13 @@ public class storeFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnSelectedCancleActionPerformed
 
+    private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
+        StoreReceipt store = new StoreReceipt();
+        store.setVisible(true);
+        store.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_btnPayActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -487,20 +499,21 @@ public class storeFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(storeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StoreFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(storeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StoreFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(storeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StoreFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(storeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StoreFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new storeFrame().setVisible(true);
+            public void run(){
+                new StoreFrame().setVisible(true);
             }
         });
     }
