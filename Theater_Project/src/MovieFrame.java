@@ -17,8 +17,10 @@ public class MovieFrame extends javax.swing.JFrame {
     /**
      * Creates new form movie
      */
-    public MovieFrame() {
+    String id;
+    public MovieFrame(String id) {
         initComponents();
+        this.id = id;
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -47,6 +49,7 @@ public class MovieFrame extends javax.swing.JFrame {
         maGenre = new javax.swing.JLabel();
         chooseSeatNum = new javax.swing.JButton();
         movieSelect = new javax.swing.JLabel();
+        backFrame = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,21 +89,25 @@ public class MovieFrame extends javax.swing.JFrame {
 
         movieSelect.setText("영화선택");
 
+        backFrame.setText("뒤로가기");
+        backFrame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backFrameActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(chooseSeatNum)
-                .addGap(37, 37, 37))
             .addGroup(layout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(movieSelect)
+                .addContainerGap(183, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(movieSelect))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,15 +122,20 @@ public class MovieFrame extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(beomSeat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(beomGenre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(beomGrade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(beomGrade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(maTitle)
                                 .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(maSeat)
                                     .addComponent(maGenre)
-                                    .addComponent(maGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(183, Short.MAX_VALUE))
+                                    .addComponent(maGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(backFrame)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(chooseSeatNum)
+                        .addGap(37, 37, 37))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +167,9 @@ public class MovieFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(maGrade)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(chooseSeatNum)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chooseSeatNum)
+                    .addComponent(backFrame))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -175,11 +189,21 @@ public class MovieFrame extends javax.swing.JFrame {
         if(maTitle.isSelected()){
             movie.Setmovie("movie3");
         }
-        ChooseSeatFrame seat = new ChooseSeatFrame(movie);
+        
+        if(movie.Getmovie() == null){
+            JOptionPane.showMessageDialog(null, "영화가 선택되지 않았습니다.");
+        }
+        
+        ChooseSeatFrame seat = new ChooseSeatFrame(movie, id);
         seat.setLocationRelativeTo(null);
         seat.setVisible(true);
         dispose();
     }//GEN-LAST:event_chooseSeatNumActionPerformed
+
+    private void backFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backFrameActionPerformed
+        dispose();
+        new MainFrame2(id);
+    }//GEN-LAST:event_backFrameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,12 +238,12 @@ public class MovieFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MovieFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backFrame;
     private javax.swing.JLabel beomGenre;
     private javax.swing.JLabel beomGrade;
     private javax.swing.JLabel beomSeat;

@@ -51,6 +51,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="seatD2" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="backFrame" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -92,7 +93,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="seatCount" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="seatB5" min="-2" max="-2" attributes="0"/>
@@ -110,7 +110,17 @@
                                           <Component id="seatD6" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="seatPrice" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="seatCount" min="-2" max="-2" attributes="0"/>
+                                          <Component id="seatPrice" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="resultPrice" pref="30" max="32767" attributes="0"/>
+                                          <Component id="resultCount" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -249,11 +259,16 @@
                   </Group>
               </Group>
               <EmptySpace pref="26" max="32767" attributes="0"/>
-              <Component id="seatPrice" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="seatPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="resultPrice" alignment="0" min="-2" pref="17" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="seatPay" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="seatCount" alignment="1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="seatPay" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="seatCount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="resultCount" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                  <Component id="backFrame" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
@@ -624,12 +639,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="seatPrice">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xae08;&#xc561;: 0"/>
+        <Property name="text" type="java.lang.String" value="&#xae08;&#xc561;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="seatCount">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc778;&#xc6d0;&#xc218;: 0"/>
+        <Property name="text" type="java.lang.String" value="&#xc778;&#xc6d0;&#xc218;:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="seatPay">
@@ -638,6 +653,24 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seatPayActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="resultPrice">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="resultCount">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="backFrame">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xb4a4;&#xb85c;&#xac00;&#xae30;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backFrameActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -12,8 +12,19 @@ public class MovieReceiptFrame extends javax.swing.JFrame {
     /**
      * Creates new form movieReceiptFrame
      */
-    public MovieReceiptFrame() {
+    public MovieReceiptFrame(String id, String price, String count, String movie) {
         initComponents();
+        if(movie.equals("movie1")){
+            lblMovieTitle.setText("공조2");
+        }else if(movie.equals("movie2")){
+            lblMovieTitle.setText("범죄도시2");
+        }else{
+            lblMovieTitle.setText("마녀2");
+        }
+        String str = count.substring(0, count.length() - 2);
+        lblSeat.setText(str);
+        lblTotal.setText(price);
+        lblId.setText(id);
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -35,6 +46,7 @@ public class MovieReceiptFrame extends javax.swing.JFrame {
         lblMovieTitle = new javax.swing.JLabel();
         lblSeat = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,10 +92,13 @@ public class MovieReceiptFrame extends javax.swing.JFrame {
                         .addComponent(jLabel1)))
                 .addContainerGap(104, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 214, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnPrint)
-                    .addComponent(lblTicket)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblId)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTicket))
                     .addComponent(lblTotal))
                 .addGap(50, 50, 50))
         );
@@ -93,7 +108,9 @@ public class MovieReceiptFrame extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
                 .addGap(46, 46, 46)
-                .addComponent(lblTicket)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTicket)
+                    .addComponent(lblId))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -116,37 +133,6 @@ public class MovieReceiptFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MovieReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MovieReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MovieReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MovieReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new MovieReceiptFrame().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -154,6 +140,7 @@ public class MovieReceiptFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblMovieTitle;
     private javax.swing.JLabel lblSeat;
     private javax.swing.JLabel lblTicket;
