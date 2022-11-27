@@ -1,4 +1,5 @@
 
+import java.awt.event.ItemEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import movie.movieDAO;
@@ -135,6 +136,12 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
         resultCount.setText(Integer.toString(count));
     }
     
+    public void deleteReservation(){
+        int price = Integer.parseInt(resultPrice.getText()) - 15000;
+        int count = Integer.parseInt(resultCount.getText()) - 1;
+        resultPrice.setText(Integer.toString(price));
+        resultCount.setText(Integer.toString(count));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -186,270 +193,305 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        seatScreen.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        seatScreen.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
         seatScreen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         seatScreen.setText("screen");
 
+        seatA1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatA1.setText("A1");
         seatA1.setSize(new java.awt.Dimension(30, 30));
-        seatA1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA1ActionPerformed(evt);
+        seatA1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatA1ItemStateChanged(evt);
             }
         });
 
+        seatA2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatA2.setText("A2");
         seatA2.setSize(new java.awt.Dimension(30, 30));
-        seatA2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA2ActionPerformed(evt);
+        seatA2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatA2ItemStateChanged(evt);
             }
         });
 
+        seatB1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatB1.setText("B1");
         seatB1.setSize(new java.awt.Dimension(30, 30));
-        seatB1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB1ActionPerformed(evt);
+        seatB1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatB1ItemStateChanged(evt);
             }
         });
 
+        seatB2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatB2.setText("B2");
         seatB2.setSize(new java.awt.Dimension(30, 30));
-        seatB2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB2ActionPerformed(evt);
+        seatB2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatB2ItemStateChanged(evt);
             }
         });
 
+        seatC1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatC1.setText("C1");
         seatC1.setSize(new java.awt.Dimension(30, 30));
-        seatC1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC1ActionPerformed(evt);
+        seatC1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatC1ItemStateChanged(evt);
             }
         });
 
+        seatC2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatC2.setText("C2");
         seatC2.setSize(new java.awt.Dimension(30, 30));
-        seatC2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC2ActionPerformed(evt);
+        seatC2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatC2ItemStateChanged(evt);
             }
         });
 
+        seatD1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatD1.setText("D1");
         seatD1.setSize(new java.awt.Dimension(30, 30));
-        seatD1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatD1ActionPerformed(evt);
+        seatD1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatD1ItemStateChanged(evt);
             }
         });
 
+        seatD2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatD2.setText("D2");
         seatD2.setSize(new java.awt.Dimension(30, 30));
-        seatD2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatD2ActionPerformed(evt);
+        seatD2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatD2ItemStateChanged(evt);
             }
         });
 
+        seatC4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatC4.setText("C4");
         seatC4.setSize(new java.awt.Dimension(30, 30));
-        seatC4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC4ActionPerformed(evt);
+        seatC4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatC4ItemStateChanged(evt);
             }
         });
 
+        seatD3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatD3.setText("D3");
         seatD3.setSize(new java.awt.Dimension(30, 30));
-        seatD3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatD3ActionPerformed(evt);
+        seatD3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatD3ItemStateChanged(evt);
             }
         });
 
+        seatD4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatD4.setText("D4");
         seatD4.setSize(new java.awt.Dimension(30, 30));
-        seatD4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatD4ActionPerformed(evt);
+        seatD4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatD4ItemStateChanged(evt);
             }
         });
 
+        seatA3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatA3.setText("A3");
         seatA3.setSize(new java.awt.Dimension(30, 30));
-        seatA3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA3ActionPerformed(evt);
+        seatA3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatA3ItemStateChanged(evt);
             }
         });
 
+        seatA4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatA4.setText("A4");
         seatA4.setSize(new java.awt.Dimension(30, 30));
-        seatA4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA4ActionPerformed(evt);
+        seatA4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatA4ItemStateChanged(evt);
             }
         });
 
+        seatB3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatB3.setText("B3");
         seatB3.setSize(new java.awt.Dimension(30, 30));
-        seatB3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB3ActionPerformed(evt);
+        seatB3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatB3ItemStateChanged(evt);
             }
         });
 
+        seatB4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatB4.setText("B4");
         seatB4.setSize(new java.awt.Dimension(30, 30));
-        seatB4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB4ActionPerformed(evt);
+        seatB4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatB4ItemStateChanged(evt);
             }
         });
 
+        seatC3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatC3.setText("C3");
         seatC3.setSize(new java.awt.Dimension(30, 30));
-        seatC3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC3ActionPerformed(evt);
+        seatC3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatC3ItemStateChanged(evt);
             }
         });
 
+        seatC6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatC6.setText("C6");
         seatC6.setSize(new java.awt.Dimension(30, 30));
-        seatC6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC6ActionPerformed(evt);
+        seatC6.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatC6ItemStateChanged(evt);
             }
         });
 
+        seatD5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatD5.setText("D5");
         seatD5.setSize(new java.awt.Dimension(30, 30));
-        seatD5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatD5ActionPerformed(evt);
+        seatD5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatD5ItemStateChanged(evt);
             }
         });
 
+        seatD6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatD6.setText("D6");
         seatD6.setSize(new java.awt.Dimension(30, 30));
-        seatD6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatD6ActionPerformed(evt);
+        seatD6.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatD6ItemStateChanged(evt);
             }
         });
 
+        seatA5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatA5.setText("A5");
         seatA5.setSize(new java.awt.Dimension(30, 30));
-        seatA5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA5ActionPerformed(evt);
+        seatA5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatA5ItemStateChanged(evt);
             }
         });
 
+        seatA6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatA6.setText("A6");
         seatA6.setSize(new java.awt.Dimension(30, 30));
-        seatA6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA6ActionPerformed(evt);
+        seatA6.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatA6ItemStateChanged(evt);
             }
         });
 
+        seatB5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatB5.setText("B5");
         seatB5.setSize(new java.awt.Dimension(30, 30));
-        seatB5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB5ActionPerformed(evt);
+        seatB5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatB5ItemStateChanged(evt);
             }
         });
 
+        seatB6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatB6.setText("B6");
         seatB6.setSize(new java.awt.Dimension(30, 30));
-        seatB6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB6ActionPerformed(evt);
+        seatB6.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatB6ItemStateChanged(evt);
             }
         });
 
+        seatC5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatC5.setText("C5");
         seatC5.setSize(new java.awt.Dimension(30, 30));
-        seatC5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC5ActionPerformed(evt);
+        seatC5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatC5ItemStateChanged(evt);
             }
         });
 
+        seatC8.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatC8.setText("C8");
         seatC8.setSize(new java.awt.Dimension(30, 30));
-        seatC8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC8ActionPerformed(evt);
+        seatC8.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatC8ItemStateChanged(evt);
             }
         });
 
+        seatD7.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatD7.setText("D7");
         seatD7.setSize(new java.awt.Dimension(30, 30));
-        seatD7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatD7ActionPerformed(evt);
+        seatD7.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatD7ItemStateChanged(evt);
             }
         });
 
+        seatD8.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatD8.setText("D8");
         seatD8.setSize(new java.awt.Dimension(30, 30));
-        seatD8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatD8ActionPerformed(evt);
+        seatD8.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatD8ItemStateChanged(evt);
             }
         });
 
+        seatA7.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatA7.setText("A7");
         seatA7.setSize(new java.awt.Dimension(30, 30));
-        seatA7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA7ActionPerformed(evt);
+        seatA7.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatA7ItemStateChanged(evt);
             }
         });
 
+        seatA8.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatA8.setText("A8");
         seatA8.setSize(new java.awt.Dimension(30, 30));
-        seatA8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatA8ActionPerformed(evt);
+        seatA8.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatA8ItemStateChanged(evt);
             }
         });
 
+        seatB7.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatB7.setText("B7");
         seatB7.setSize(new java.awt.Dimension(30, 30));
-        seatB7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB7ActionPerformed(evt);
+        seatB7.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatB7ItemStateChanged(evt);
             }
         });
 
+        seatB8.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatB8.setText("B8");
         seatB8.setSize(new java.awt.Dimension(30, 30));
-        seatB8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatB8ActionPerformed(evt);
+        seatB8.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatB8ItemStateChanged(evt);
             }
         });
 
+        seatC7.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatC7.setText("C7");
         seatC7.setSize(new java.awt.Dimension(30, 30));
-        seatC7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seatC7ActionPerformed(evt);
+        seatC7.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                seatC7ItemStateChanged(evt);
             }
         });
 
-        seatPrice.setText("금액:");
+        seatPrice.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        seatPrice.setText("금   액:");
 
+        seatCount.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatCount.setText("인원수:");
 
+        seatPay.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         seatPay.setText("결제하기");
         seatPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -457,10 +499,13 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
             }
         });
 
+        resultPrice.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         resultPrice.setText("0");
 
+        resultCount.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         resultCount.setText("0");
 
+        backFrame.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         backFrame.setText("뒤로가기");
         backFrame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -473,191 +518,194 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(seatScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(seatA1)
+                                .addComponent(seatA1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(seatA2))
+                                .addComponent(seatA2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(seatB1)
+                                        .addComponent(seatB1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(seatB2))
+                                        .addComponent(seatB2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(seatC1)
+                                        .addComponent(seatC1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(seatC2))
+                                        .addComponent(seatC2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(seatD1)
+                                        .addComponent(seatD1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(seatD2))
-                                    .addComponent(backFrame))))
-                        .addGap(18, 18, 18)
+                                        .addComponent(seatD2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(seatA3)
+                                .addComponent(seatA3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(seatA4))
+                                .addComponent(seatA4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(seatB3)
+                                        .addComponent(seatB3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(seatB4))
+                                        .addComponent(seatB4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(seatC3)
+                                        .addComponent(seatC3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(seatC4))
+                                        .addComponent(seatC4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(seatD3)
+                                        .addComponent(seatD3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(seatD4)))))
+                                        .addComponent(seatD4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(seatA5)
+                                .addComponent(seatA5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(seatA6))
+                                .addComponent(seatA6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(seatB5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(seatB6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(seatC5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(seatC6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(seatD5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(seatD6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(seatCount, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(seatPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(resultPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(resultCount, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(seatA7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(seatA8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(backFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(seatPay, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(seatB5)
+                                            .addComponent(seatB7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(seatB6))
+                                            .addComponent(seatB8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(seatC5)
+                                            .addComponent(seatC7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(seatC6))
+                                            .addComponent(seatC8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(seatD5)
+                                            .addComponent(seatD7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(seatD6)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(seatCount)
-                                            .addComponent(seatPrice))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(resultPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                                            .addComponent(resultCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(seatScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(seatA7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(seatA8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(seatPay)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(seatB7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(seatB8))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(seatC7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(seatC8))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(seatD7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(seatD8))))))
-                .addContainerGap(68, Short.MAX_VALUE))
+                                            .addComponent(seatD8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(seatScreen)
-                .addGap(36, 36, 36)
+                .addComponent(seatScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatA1)
-                                .addComponent(seatA2))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(seatA2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatA1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatB1)
-                                .addComponent(seatB2))
+                                .addComponent(seatB1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatB2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatC1)
-                                .addComponent(seatC2))
+                                .addComponent(seatC1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatC2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatD1)
-                                .addComponent(seatD2)))
+                                .addComponent(seatD1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatD2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatA3)
-                                .addComponent(seatA4))
+                                .addComponent(seatA3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatA4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatB3)
-                                .addComponent(seatB4))
+                                .addComponent(seatB3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatB4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatC3)
-                                .addComponent(seatC4))
+                                .addComponent(seatC3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatC4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatD3)
-                                .addComponent(seatD4)))
+                                .addComponent(seatD3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatD4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatA5)
-                                .addComponent(seatA6))
+                                .addComponent(seatA5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatA6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatB5)
-                                .addComponent(seatB6))
+                                .addComponent(seatB5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatB6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatC5)
-                                .addComponent(seatC6))
+                                .addComponent(seatC5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatC6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(seatD5)
-                                .addComponent(seatD6))))
+                                .addComponent(seatD5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(seatD6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seatA7)
-                            .addComponent(seatA8))
+                            .addComponent(seatA7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(seatA8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seatB7)
-                            .addComponent(seatB8))
+                            .addComponent(seatB7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(seatB8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seatC7)
-                            .addComponent(seatC8))
+                            .addComponent(seatC7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(seatC8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(seatD7)
-                            .addComponent(seatD8))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(seatPrice)
-                    .addComponent(resultPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(seatPay)
-                    .addComponent(seatCount)
-                    .addComponent(resultCount, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(backFrame))
-                .addGap(19, 19, 19))
+                            .addComponent(seatD7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(seatD8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(backFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(seatPay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(resultPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(seatPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(seatCount, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resultCount, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -680,170 +728,330 @@ public class ChooseSeatFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_seatPayActionPerformed
 
-    private void seatA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA1ActionPerformed
-        list.add(seatA1.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatA1ActionPerformed
-
-    private void seatA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA2ActionPerformed
-        list.add(seatA2.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatA2ActionPerformed
-
-    private void seatA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA3ActionPerformed
-        list.add(seatA3.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatA3ActionPerformed
-
-    private void seatA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA4ActionPerformed
-        list.add(seatA4.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatA4ActionPerformed
-
-    private void seatA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA5ActionPerformed
-        list.add(seatA5.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatA5ActionPerformed
-
-    private void seatA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA6ActionPerformed
-        list.add(seatA6.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatA6ActionPerformed
-
-    private void seatA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA7ActionPerformed
-        list.add(seatA7.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatA7ActionPerformed
-
-    private void seatA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatA8ActionPerformed
-        list.add(seatA8.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatA8ActionPerformed
-
-    private void seatB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB1ActionPerformed
-        list.add(seatB1.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatB1ActionPerformed
-
-    private void seatB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB2ActionPerformed
-        list.add(seatB2.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatB2ActionPerformed
-
-    private void seatB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB3ActionPerformed
-        list.add(seatB3.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatB3ActionPerformed
-
-    private void seatB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB4ActionPerformed
-        list.add(seatB4.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatB4ActionPerformed
-
-    private void seatB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB5ActionPerformed
-        list.add(seatB5.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatB5ActionPerformed
-
-    private void seatB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB6ActionPerformed
-        list.add(seatB6.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatB6ActionPerformed
-
-    private void seatB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB7ActionPerformed
-        list.add(seatB7.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatB7ActionPerformed
-
-    private void seatB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatB8ActionPerformed
-        list.add(seatB8.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatB8ActionPerformed
-
-    private void seatC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC1ActionPerformed
-        list.add(seatC1.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatC1ActionPerformed
-
-    private void seatC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC2ActionPerformed
-        list.add(seatC2.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatC2ActionPerformed
-
-    private void seatC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC3ActionPerformed
-        list.add(seatC3.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatC3ActionPerformed
-
-    private void seatC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC4ActionPerformed
-        list.add(seatC4.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatC4ActionPerformed
-
-    private void seatC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC5ActionPerformed
-        list.add(seatC5.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatC5ActionPerformed
-
-    private void seatC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC6ActionPerformed
-        list.add(seatC6.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatC6ActionPerformed
-
-    private void seatC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC7ActionPerformed
-        list.add(seatC7.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatC7ActionPerformed
-
-    private void seatC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatC8ActionPerformed
-        list.add(seatC8.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatC8ActionPerformed
-
-    private void seatD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD1ActionPerformed
-        list.add(seatD1.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatD1ActionPerformed
-
-    private void seatD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD2ActionPerformed
-        list.add(seatD2.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatD2ActionPerformed
-
-    private void seatD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD3ActionPerformed
-        list.add(seatD3.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatD3ActionPerformed
-
-    private void seatD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD4ActionPerformed
-        list.add(seatD4.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatD4ActionPerformed
-
-    private void seatD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD5ActionPerformed
-        list.add(seatD5.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatD5ActionPerformed
-
-    private void seatD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD6ActionPerformed
-        list.add(seatD6.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatD6ActionPerformed
-
-    private void seatD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD7ActionPerformed
-        list.add(seatD7.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatD7ActionPerformed
-
-    private void seatD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatD8ActionPerformed
-        list.add(seatD8.getText());
-        reservationResult();
-    }//GEN-LAST:event_seatD8ActionPerformed
-
     private void backFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backFrameActionPerformed
         dispose();
         new MovieFrame(id);
     }//GEN-LAST:event_backFrameActionPerformed
+
+    private void seatC5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatC5ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatC5.getText());
+            reservationResult();
+        }else{
+            list.remove(seatC5.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatC5ItemStateChanged
+
+    private void seatA1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatA1ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatA1.getText());
+            reservationResult();
+        }else{
+            list.remove(seatA1.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatA1ItemStateChanged
+
+    private void seatA2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatA2ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatA2.getText());
+            reservationResult();
+        }else{
+            list.remove(seatA2.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatA2ItemStateChanged
+
+    private void seatA3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatA3ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatA3.getText());
+            reservationResult();
+        }else{
+            list.remove(seatA3.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatA3ItemStateChanged
+
+    private void seatA6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatA6ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatA6.getText());
+            reservationResult();
+        }else{
+            list.remove(seatA6.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatA6ItemStateChanged
+
+    private void seatA7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatA7ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatA7.getText());
+            reservationResult();
+        }else{
+            list.remove(seatA7.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatA7ItemStateChanged
+
+    private void seatB1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatB1ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatB1.getText());
+            reservationResult();
+        }else{
+            list.remove(seatB1.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatB1ItemStateChanged
+
+    private void seatB2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatB2ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatB2.getText());
+            reservationResult();
+        }else{
+            list.remove(seatB2.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatB2ItemStateChanged
+
+    private void seatB4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatB4ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatB4.getText());
+            reservationResult();
+        }else{
+            list.remove(seatB4.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatB4ItemStateChanged
+
+    private void seatB5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatB5ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatB5.getText());
+            reservationResult();
+        }else{
+            list.remove(seatB5.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatB5ItemStateChanged
+
+    private void seatB6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatB6ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatB6.getText());
+            reservationResult();
+        }else{
+            list.remove(seatB6.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatB6ItemStateChanged
+
+    private void seatB7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatB7ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatB7.getText());
+            reservationResult();
+        }else{
+            list.remove(seatB7.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatB7ItemStateChanged
+
+    private void seatB8ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatB8ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatB8.getText());
+            reservationResult();
+        }else{
+            list.remove(seatB8.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatB8ItemStateChanged
+
+    private void seatC1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatC1ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatC1.getText());
+            reservationResult();
+        }else{
+            list.remove(seatC1.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatC1ItemStateChanged
+
+    private void seatC2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatC2ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatC2.getText());
+            reservationResult();
+        }else{
+            list.remove(seatC2.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatC2ItemStateChanged
+
+    private void seatC3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatC3ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatC3.getText());
+            reservationResult();
+        }else{
+            list.remove(seatC3.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatC3ItemStateChanged
+
+    private void seatC4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatC4ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatC4.getText());
+            reservationResult();
+        }else{
+            list.remove(seatC4.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatC4ItemStateChanged
+
+    private void seatC6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatC6ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatC6.getText());
+            reservationResult();
+        }else{
+            list.remove(seatC6.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatC6ItemStateChanged
+
+    private void seatC7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatC7ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatC7.getText());
+            reservationResult();
+        }else{
+            list.remove(seatC7.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatC7ItemStateChanged
+
+    private void seatC8ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatC8ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatC8.getText());
+            reservationResult();
+        }else{
+            list.remove(seatC8.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatC8ItemStateChanged
+
+    private void seatD1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatD1ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatD1.getText());
+            reservationResult();
+        }else{
+            list.remove(seatD1.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatD1ItemStateChanged
+
+    private void seatD2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatD2ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatD2.getText());
+            reservationResult();
+        }else{
+            list.remove(seatD2.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatD2ItemStateChanged
+
+    private void seatD3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatD3ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatD3.getText());
+            reservationResult();
+        }else{
+            list.remove(seatD3.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatD3ItemStateChanged
+
+    private void seatD4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatD4ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatD4.getText());
+            reservationResult();
+        }else{
+            list.remove(seatD4.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatD4ItemStateChanged
+
+    private void seatD5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatD5ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatD5.getText());
+            reservationResult();
+        }else{
+            list.remove(seatD5.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatD5ItemStateChanged
+
+    private void seatD6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatD6ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatD6.getText());
+            reservationResult();
+        }else{
+            list.remove(seatD6.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatD6ItemStateChanged
+
+    private void seatD7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatD7ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatD7.getText());
+            reservationResult();
+        }else{
+            list.remove(seatD7.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatD7ItemStateChanged
+
+    private void seatA4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatA4ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatA4.getText());
+            reservationResult();
+        }else{
+            list.remove(seatA4.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatA4ItemStateChanged
+
+    private void seatA5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatA5ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatA5.getText());
+            reservationResult();
+        }else{
+            list.remove(seatA5.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatA5ItemStateChanged
+
+    private void seatA8ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatA8ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatA8.getText());
+            reservationResult();
+        }else{
+            list.remove(seatA8.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatA8ItemStateChanged
+
+    private void seatD8ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatD8ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatD8.getText());
+            reservationResult();
+        }else{
+            list.remove(seatD8.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatD8ItemStateChanged
+
+    private void seatB3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_seatB3ItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED){
+            list.add(seatB3.getText());
+            reservationResult();
+        }else{
+            list.remove(seatB3.getText());
+            deleteReservation();
+        }
+    }//GEN-LAST:event_seatB3ItemStateChanged
 
     /**
      * @param args the command line arguments
