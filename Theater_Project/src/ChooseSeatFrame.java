@@ -16,7 +16,7 @@ import movie.movieDTO;
  */
 public class ChooseSeatFrame extends javax.swing.JFrame {
 
-    /**
+    /** 
      * Creates new form chooseSeat
      */
     String id;
