@@ -1,3 +1,8 @@
+
+import javax.swing.JOptionPane;
+import user.userDAO;
+import user.userDTO;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -27,54 +32,59 @@ public class JoinFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        id = new javax.swing.JLabel();
+        pw = new javax.swing.JLabel();
         joinId = new javax.swing.JTextField();
         joinPassword = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        mail = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        man = new javax.swing.JRadioButton();
-        woman = new javax.swing.JRadioButton();
+        name = new javax.swing.JLabel();
+        joinName = new javax.swing.JTextField();
+        email = new javax.swing.JLabel();
+        joinEmail = new javax.swing.JTextField();
+        gender = new javax.swing.JLabel();
+        joinMan = new javax.swing.JRadioButton();
+        joinWomen = new javax.swing.JRadioButton();
         joinAction = new javax.swing.JButton();
         backFrame = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel1.setText("아이디 :");
+        id.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        id.setText("아이디 :");
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel2.setText("비밀번호 :");
+        pw.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        pw.setText("비밀번호 :");
 
         joinId.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
         joinPassword.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel4.setText("닉네임 :");
-
         name.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        name.setText("닉네임 :");
 
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel5.setText("이메일 :");
+        joinName.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
-        mail.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        email.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        email.setText("이메일 :");
 
-        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel6.setText("성별 :");
+        joinEmail.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
-        man.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        man.setSelected(true);
-        man.setText("남");
+        gender.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        gender.setText("성별 :");
 
-        woman.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        woman.setText("여");
+        joinMan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        joinMan.setSelected(true);
+        joinMan.setText("남");
+
+        joinWomen.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        joinWomen.setText("여");
 
         joinAction.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         joinAction.setText("회원가입");
+        joinAction.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                joinActionActionPerformed(evt);
+            }
+        });
 
         backFrame.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         backFrame.setText("뒤로가기");
@@ -93,23 +103,23 @@ public class JoinFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pw, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(joinId, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(joinPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(name)
-                                .addComponent(mail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(joinName)
+                                .addComponent(joinEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(man, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(joinMan, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(woman, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(joinWomen, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
                 .addGap(97, 97, 97)
@@ -124,26 +134,26 @@ public class JoinFrame extends javax.swing.JFrame {
                 .addContainerGap(54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pw, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(joinId, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(joinPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(joinName, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mail, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(joinEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(man, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(woman, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(joinMan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(joinWomen, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(joinAction, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,6 +169,48 @@ public class JoinFrame extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_backFrameActionPerformed
 
+    private void joinActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinActionActionPerformed
+        userDTO dto = new userDTO();
+        userDAO dao = new userDAO();
+        dto.setId(joinId.getText());
+        dto.setPw(joinPassword.getText());
+        dto.setName(joinName.getText());
+        if(joinMan.isSelected()){
+            dto.setEmail(joinMan.getText());
+        }
+        if(joinWomen.isSelected()){
+            dto.setEmail(joinWomen.getText());
+        }
+
+        if(joinId.getText().equals("") || joinPassword.getText().equals("") || joinName.getText().equals("") || joinEmail.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "빈 칸이 있습니다 다시 입력해주세요.");
+        }else{
+        try {
+            int duplicate = dao.joinCheck(dto.getId());
+            if(duplicate == 1){
+                JOptionPane.showMessageDialog(null, "이미 존재하는 아이디입니다.");
+                dispose();
+                new JoinFrame();
+            }else{
+                int resultUser = dao.joinUser(dto);
+                int resultInfo = dao.joinUserInfo(dto);
+                if(resultUser > 0 && resultInfo > 0){
+                    JOptionPane.showMessageDialog(null, "회원 가입에 성공하셨습니다.");
+                    dispose();
+                    new MainFrame2(dto.getId());
+                }else{
+                    JOptionPane.showMessageDialog(null, "회원 가입에 실패하셨습니다.");
+                }
+            }
+
+        } catch (Exception e) {
+         e.printStackTrace();   
+        }
+        }
+
+    }//GEN-LAST:event_joinActionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -167,17 +219,17 @@ public class JoinFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backFrame;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel email;
+    private javax.swing.JLabel gender;
+    private javax.swing.JLabel id;
     private javax.swing.JButton joinAction;
+    private javax.swing.JTextField joinEmail;
     private javax.swing.JTextField joinId;
+    private javax.swing.JRadioButton joinMan;
+    private javax.swing.JTextField joinName;
     private javax.swing.JTextField joinPassword;
-    private javax.swing.JTextField mail;
-    private javax.swing.JRadioButton man;
-    private javax.swing.JTextField name;
-    private javax.swing.JRadioButton woman;
+    private javax.swing.JRadioButton joinWomen;
+    private javax.swing.JLabel name;
+    private javax.swing.JLabel pw;
     // End of variables declaration//GEN-END:variables
 }
