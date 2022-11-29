@@ -475,9 +475,6 @@ public class StoreFrame extends javax.swing.JFrame {
         }
         total = 0;  // 총합 금액은 0으로 초기화해 줌.
         lblTotal.setText(Integer.toString(total));
-        
-//        int iCntRow = jTable1.getRowCount();
-//        System.out.println(iCntRow);
     }//GEN-LAST:event_btnAllCancleActionPerformed
 
     private void btnSelectedCancleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectedCancleActionPerformed
@@ -508,14 +505,7 @@ public class StoreFrame extends javax.swing.JFrame {
             check = false;
         }
         
-        // 유저 이름 가져오기
-        String name = getName();
-        
-        if (name == null) {
-            System.out.println("이름 없음.");
-        }
-        
-        // 값 전달 테스트
+        // 값 전달
         String storeTotal = "";
         String product = "";
         String price = "";
@@ -527,18 +517,24 @@ public class StoreFrame extends javax.swing.JFrame {
         iCntRow = jTable1.getRowCount();
         
         for (int i = 0; i < iCntRow; i++) {
+            System.out.println(i);
             product = String.valueOf(model.getValueAt(i, 0));
             count = String.valueOf(model.getValueAt(i, 1));
-            price = String.valueOf(model.getValueAt(i, 2));
+            price = String.valueOf(model.getValueAt(i, 2)) + "원";
             lbl += product + " " + price + " " + count + "<br>";
             System.out.println(lbl);
         }
+        
         lbl += "</html>";
         
         if (check) {  // 선택된 제품이 있을 경우
             dispose();  // 현재 윈도우만 닫기
-            new StoreReceipt(storeTotal, lbl, name);  // 매점 영수증 frame으로 이동 + 구매하는 제품들과 총합 금액도 같이..
+            new StoreReceipt(storeTotal, lbl, id);  // 매점 영수증 frame으로 이동 + 구매하는 제품들과 총합 금액도 같이..
         }
+        
+        System.out.println("-------------------");
+        System.out.println(lbl);
+        
         // 값 전달 테스트 끝
     }//GEN-LAST:event_btnPayActionPerformed
 
@@ -574,13 +570,6 @@ public class StoreFrame extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
-        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run(){
-//                new StoreFrame().setVisible(true);
-//            }
-//        });
     }
     
     public void inputMenuTable(String btnName, int price) {
@@ -591,7 +580,7 @@ public class StoreFrame extends javax.swing.JFrame {
         
         product = btnName;
         productPrice = price;
-        total += productPrice;  // 총합계 누적
+        total += productPrice;  // 제품 선택할 때마다 총합 금액 누적
         
         iCntRow = jTable1.getRowCount();
         
@@ -602,33 +591,12 @@ public class StoreFrame extends javax.swing.JFrame {
             }
         }
         model.addRow(new Object[]{product, "1", productPrice});  // 제품 선택할 때마다 테이블 행(row)생성
-        
-//        jTable1.setValueAt(product, iCntRow, 0);  // 제품
-//        jTable1.setValueAt("1", iCntRow, 1);  // 개수 (1로 통일한다)
-//        jTable1.setValueAt(productPrice, iCntRow, 2);  // 가격
-        
-        lblTotal.setText(Integer.toString(total)); // 제품 선택할 때마다 총합 금액 누적
+        lblTotal.setText(Integer.toString(total)); // 총합 금액 나타내기
     }
     
     public class MakeRowData {
         public String strProduct;
         public int iPrice;
-    }
-    
-    public String getName(userDAO nUser) {
-        String sql = "select userName from user where userId = ?";
-        try {
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, id);
-            rs = pstmt.executeQuery();
-            if (rs.next()) {
-                return rs.getString("userName");
-            }
-            return null;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
 

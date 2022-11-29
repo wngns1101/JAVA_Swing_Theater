@@ -45,7 +45,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblProduct" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="lblProduct" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -66,12 +66,15 @@
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel3" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lblProduct" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-              <Component id="lblTotal" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnPrint" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="lblTotal" min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnPrint" min="-2" pref="50" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="lblProduct" min="-2" pref="234" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -105,9 +108,17 @@
     <Component class="javax.swing.JLabel" name="lblProduct">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Helvetica Neue" size="18" style="0"/>
+          <Font name="Helvetica Neue" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&#xac00;&#xb098;&#xb2e4;&#xb77c;&#xb9c8;"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
+        <Property name="text" type="java.lang.String" value="&#xac00;&#xac00;&#xac00;&#xac00;&#xac00;&#xac01;&#xac00;&#xac00;&#xac00;&#xac00;&#xac01;&#xac00;"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="verticalAlignment" type="int" value="1"/>
+        <Property name="horizontalTextPosition" type="int" value="2"/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[100, 100]"/>
+        </Property>
+        <Property name="verticalTextPosition" type="int" value="1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTotal">
