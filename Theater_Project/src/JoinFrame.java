@@ -1,8 +1,9 @@
 
+import java.security.NoSuchAlgorithmException;
 import javax.swing.JOptionPane;
+import user.Encryption;
 import user.userDAO;
 import user.userDTO;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -32,6 +33,7 @@ public class JoinFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         id = new javax.swing.JLabel();
         pw = new javax.swing.JLabel();
         joinId = new javax.swing.JTextField();
@@ -71,10 +73,11 @@ public class JoinFrame extends javax.swing.JFrame {
         gender.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         gender.setText("성별 :");
 
+        buttonGroup1.add(joinMan);
         joinMan.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        joinMan.setSelected(true);
         joinMan.setText("남");
 
+        buttonGroup1.add(joinWomen);
         joinWomen.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         joinWomen.setText("여");
 
@@ -170,18 +173,25 @@ public class JoinFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_backFrameActionPerformed
 
     private void joinActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinActionActionPerformed
+        Encryption sha = new Encryption();
         userDTO dto = new userDTO();
         userDAO dao = new userDAO();
         dto.setId(joinId.getText());
-        dto.setPw(joinPassword.getText());
+        String shaPw = null;
+        try {
+            shaPw = sha.encrypt(joinPassword.getText());
+        } catch (NoSuchAlgorithmException ex) {
+            ex.printStackTrace();
+        }
+        dto.setPw(shaPw);
         dto.setName(joinName.getText());
         if(joinMan.isSelected()){
-            dto.setEmail(joinMan.getText());
+            dto.setGender(joinMan.getText());
         }
         if(joinWomen.isSelected()){
-            dto.setEmail(joinWomen.getText());
+            dto.setGender(joinWomen.getText());
         }
-
+        dto.setEmail(joinEmail.getText());
         if(joinId.getText().equals("") || joinPassword.getText().equals("") || joinName.getText().equals("") || joinEmail.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null, "빈 칸이 있습니다 다시 입력해주세요.");
@@ -219,6 +229,7 @@ public class JoinFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backFrame;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel email;
     private javax.swing.JLabel gender;
     private javax.swing.JLabel id;

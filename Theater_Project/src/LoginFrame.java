@@ -1,4 +1,6 @@
+import java.security.NoSuchAlgorithmException;
 import javax.swing.JOptionPane;
+import user.Encryption;
 import user.userDAO;
 
 /*
@@ -118,14 +120,21 @@ public class LoginFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionActionPerformed
+        Encryption sha = new Encryption();
         String id = loginId.getText();
         String pw = loginPassword.getText();
+        String shaPw = null;
+        try {
+            shaPw = sha.encrypt(loginPassword.getText());
+        } catch (NoSuchAlgorithmException ex) {
+            ex.printStackTrace();
+        }
         
         if(id == null || pw == null){
             JOptionPane.showMessageDialog(null, "아이디 비밀번호를 입력해 주세요");
         }else{
             userDAO user = new userDAO();
-            int result = user.login(id, pw);
+            int result = user.login(id, shaPw);
             if(result == 1){
 		JOptionPane.showMessageDialog(null, "로그인 성공");
                 dispose();

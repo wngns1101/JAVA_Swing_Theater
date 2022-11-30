@@ -58,7 +58,7 @@ public class userDAO {
 		return -1;
 	}
         public int joinUserInfo(userDTO user) throws SQLException {
-		String sql = "insert into userInfo(userId, userName, userEmail, userGender) values(?,?,?,?)";
+		String sql = "insert into userInfo(userId, userName, userGender, userEmail) values(?,?,?,?)";
 		pstmt = conn.prepareStatement(sql);
 		try {
 			pstmt.setString(1, user.getId());
