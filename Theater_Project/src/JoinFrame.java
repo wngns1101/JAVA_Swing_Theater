@@ -168,8 +168,8 @@ public class JoinFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backFrameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backFrameActionPerformed
-        new LoginFrame();
         dispose();
+        new LoginFrame();
     }//GEN-LAST:event_backFrameActionPerformed
 
     private void joinActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinActionActionPerformed
